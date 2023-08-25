@@ -25,3 +25,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+.canvas-container {
+  height:calc(60 * 100px);
+}
+#scroll-canvas {
+  position:sticky;
+  top:calc(50vh - 200px );
+  height: 400px;
+  width: 400px;
+}
