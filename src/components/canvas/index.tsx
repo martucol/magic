@@ -45,7 +45,7 @@ useLayoutEffect(() => {
         }
         
         const updateImage = (index : number)  => {
-          context.current.clearRect(0, 0, canvas.current.width, canvas.current.height);
+        //   context.current.clearRect(0, 0, canvas.current.width, canvas.current.height);
 
           img.src = currentFrame(index);
           if (!!context.current) {
