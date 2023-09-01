@@ -52,8 +52,7 @@ useLayoutEffect(() => {
           context.current.drawImage(img, 0, 0, window.innerWidth, window.innerHeight);
           }
         }
-        
-        window.addEventListener('scroll', () => {  
+        const handleScroll = () => {  
 
           const scrollTop = html.current.scrollTop;
           const maxScrollTop = html.current.scrollHeight - window.innerHeight;
@@ -64,9 +63,16 @@ useLayoutEffect(() => {
           );
           
           requestAnimationFrame(() => updateImage(frameIndex + 1))
-        });
+        }
+        
+        window.addEventListener('scroll', handleScroll);
         
         preloadImages()
+
+
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        }
 
     }
 }, [])
