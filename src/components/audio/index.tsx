@@ -29,8 +29,8 @@ export const AudioPlayer = ( ) => {
 
 
         const biquadFilter = ctx.createBiquadFilter();
-        biquadFilter.type = "lowpass"
-        biquadFilter.frequency.setValueAtTime(0, ctx.currentTime)
+        biquadFilter.type = "highpass"
+        biquadFilter.frequency.setValueAtTime(2000, ctx.currentTime)
 
         const convolver = ctx.createConvolver();
 
@@ -72,7 +72,7 @@ export const AudioPlayer = ( ) => {
             const maxScrollTop = html.current.scrollHeight - window.innerHeight;
             const scrollFraction = scrollTop / maxScrollTop;
             
-            const cutOffFrequency = scrollFraction * 4 * 700
+            const cutOffFrequency =2000 - scrollFraction  *2000
             if (filter.current && audioCtx.current) {
 
                 audioCtx.current.resume()
